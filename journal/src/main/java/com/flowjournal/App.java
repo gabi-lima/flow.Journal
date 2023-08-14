@@ -21,6 +21,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
         scene = new Scene(loadFXML("mainhub"));
+
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.setTitle("flow.Journal");
         stage.show();

@@ -33,43 +33,73 @@
 -->
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="VBOXhub" alignment="CENTER" prefHeight="720.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flowjournal.Mainhub">
+<VBox fx:id="vboxHub" alignment="CENTER" maxWidth="-Infinity" prefHeight="760.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flowjournal.Mainhub">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="anchorHub" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #181818;" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="BTN_novo" layoutX="65.0" layoutY="107.0" mnemonicParsing="false" onMouseClicked="#iniciarPopup" prefHeight="36.0" prefWidth="303.0" text="Nova nota" textFill="#404040">
+            <Button fx:id="BTN_novo" layoutX="65.0" layoutY="154.0" mnemonicParsing="false" onMouseClicked="#iniciarPopup" prefHeight="36.0" prefWidth="303.0" text="Nova nota" textFill="#404040">
                <font>
                   <Font name="Avignon Pro Bold" size="22.0" />
                </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#404040" glyphName="PLUS" selectionFill="#40404030" size="22" />
+               </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
-            <Button fx:id="BTN_arquivos" layoutX="63.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#abrirDiario" prefHeight="36.0" prefWidth="303.0" text="Ver notas" textFill="#404040">
+            <Button fx:id="BTN_arquivos" layoutX="63.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#abrirDiario" prefHeight="36.0" prefWidth="303.0" text="Ver notas" textFill="#404040">
                <font>
                   <Font name="Avignon Pro Bold" size="22.0" />
                </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#404040" glyphName="ARCHIVE" size="22" text="">
+                     <font>
+                        <Font />
+                     </font>
+                  </FontAwesomeIconView>
+               </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
             <Button fx:id="BTN_fechar" layoutX="63.0" layoutY="590.0" mnemonicParsing="false" onMouseClicked="#fecharApp" prefHeight="55.0" prefWidth="64.0">
                <graphic>
                   <FontAwesomeIconView glyphName="TIMES" size="38" />
                </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
-            <ToolBar layoutX="1.0" prefHeight="55.0" prefWidth="640.0">
+            <ToolBar fx:id="barra" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="640.0" style="-fx-background-color: #286656; -fx-background-radius: 2;">
+               <effect>
+                  <DropShadow height="127.5" radius="31.375" spread="0.34" width="0.0">
+                     <color>
+                        <Color red="0.007919102907180786" green="0.17105263471603394" blue="0.0840480849146843" />
+                     </color>
+                  </DropShadow>
+               </effect>
                <items>
-                  <Label text="Flow" textAlignment="CENTER" />
+                  <Label text="Flow" textAlignment="CENTER">
+                     <font>
+                        <Font name="Avignon Pro Xlight" size="36.0" />
+                     </font>
+                  </Label>
                </items>
+               <padding>
+                  <Insets left="290.0" />
+               </padding>
             </ToolBar>
-            <FontAwesomeIconView fill="#404040" glyphName="PLUS" layoutX="141.0" layoutY="135.0" selectionFill="#40404030" size="22" />
-            <FontAwesomeIconView fill="#404040" glyphName="ARCHIVE" layoutX="141.0" layoutY="208.0" size="22" text="">
-               <font>
-                  <Font />
-               </font>
-            </FontAwesomeIconView>
          </children>
     </AnchorPane>
   </children>

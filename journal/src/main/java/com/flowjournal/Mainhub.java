@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToolBar;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -37,6 +38,9 @@ public class Mainhub {
         pop.exibirPop();
 
     }
+
+    @FXML
+    private ToolBar barra;
 
     @FXML
     private void abrirDiario() throws IOException {
