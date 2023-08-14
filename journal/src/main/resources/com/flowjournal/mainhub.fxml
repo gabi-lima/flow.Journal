@@ -34,33 +34,42 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="VBOXhub" alignment="CENTER" prefHeight="300.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flowjournal.Mainhub">
+<VBox fx:id="VBOXhub" alignment="CENTER" prefHeight="720.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flowjournal.Mainhub">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="BTN_novo" layoutX="70.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#iniciarPopup" prefHeight="80.0" prefWidth="100.0">
-               <graphic>
-                  <FontAwesomeIconView glyphName="PLUS" selectionFill="#020d0d" size="38" />
-               </graphic>
+            <Button fx:id="BTN_novo" layoutX="65.0" layoutY="107.0" mnemonicParsing="false" onMouseClicked="#iniciarPopup" prefHeight="36.0" prefWidth="303.0" text="Nova nota" textFill="#404040">
+               <font>
+                  <Font name="Avignon Pro Bold" size="22.0" />
+               </font>
             </Button>
-            <Button fx:id="BTN_arquivos" layoutX="270.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#abrirDiario" prefHeight="80.0" prefWidth="100.0">
-               <graphic>
-                  <FontAwesomeIconView glyphName="ARCHIVE" size="38">
-                     <font>
-                        <Font />
-                     </font>
-                  </FontAwesomeIconView>
-               </graphic>
+            <Button fx:id="BTN_arquivos" layoutX="63.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#abrirDiario" prefHeight="36.0" prefWidth="303.0" text="Ver notas" textFill="#404040">
+               <font>
+                  <Font name="Avignon Pro Bold" size="22.0" />
+               </font>
             </Button>
-            <Button fx:id="BTN_fechar" layoutX="470.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#fecharApp" prefHeight="80.0" prefWidth="100.0">
+            <Button fx:id="BTN_fechar" layoutX="63.0" layoutY="590.0" mnemonicParsing="false" onMouseClicked="#fecharApp" prefHeight="55.0" prefWidth="64.0">
                <graphic>
                   <FontAwesomeIconView glyphName="TIMES" size="38" />
                </graphic>
             </Button>
+            <ToolBar layoutX="1.0" prefHeight="55.0" prefWidth="640.0">
+               <items>
+                  <Label text="Flow" textAlignment="CENTER" />
+               </items>
+            </ToolBar>
+            <FontAwesomeIconView fill="#404040" glyphName="PLUS" layoutX="141.0" layoutY="135.0" selectionFill="#40404030" size="22" />
+            <FontAwesomeIconView fill="#404040" glyphName="ARCHIVE" layoutX="141.0" layoutY="208.0" size="22" text="">
+               <font>
+                  <Font />
+               </font>
+            </FontAwesomeIconView>
          </children>
     </AnchorPane>
   </children>
