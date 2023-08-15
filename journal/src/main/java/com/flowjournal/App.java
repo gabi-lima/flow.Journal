@@ -19,7 +19,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
+        Popup pop = new Popup();
+        pop.exibirPop();
         scene = new Scene(loadFXML("mainhub"));
 
         stage.setResizable(false);

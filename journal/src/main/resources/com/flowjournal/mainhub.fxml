@@ -38,6 +38,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
@@ -47,9 +48,9 @@
   <children>
     <AnchorPane fx:id="anchorHub" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #181818;" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="BTN_novo" layoutX="65.0" layoutY="154.0" mnemonicParsing="false" onMouseClicked="#iniciarPopup" prefHeight="36.0" prefWidth="303.0" text="Nova nota" textFill="#404040">
+            <Button fx:id="BTN_novo" layoutX="65.0" layoutY="154.0" mnemonicParsing="false" onMouseClicked="#iniciarPopup" prefHeight="41.0" prefWidth="183.0" text="Nova nota" textFill="#404040">
                <font>
-                  <Font name="Avignon Pro Bold" size="22.0" />
+                  <Font name="Avignon Pro Bold" size="18.0" />
                </font>
                <graphic>
                   <FontAwesomeIconView fill="#404040" glyphName="PLUS" selectionFill="#40404030" size="22" />
@@ -58,9 +59,9 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="BTN_arquivos" layoutX="63.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#abrirDiario" prefHeight="36.0" prefWidth="303.0" text="Ver notas" textFill="#404040">
+            <Button fx:id="BTN_arquivos" layoutX="63.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#abrirDiario" prefHeight="41.0" prefWidth="183.0" text="Ver notas" textFill="#404040">
                <font>
-                  <Font name="Avignon Pro Bold" size="22.0" />
+                  <Font name="Avignon Pro Bold" size="18.0" />
                </font>
                <graphic>
                   <FontAwesomeIconView fill="#404040" glyphName="ARCHIVE" size="22" text="">
@@ -81,7 +82,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <ToolBar fx:id="barra" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="640.0" style="-fx-background-color: #286656; -fx-background-radius: 2;">
+            <ToolBar fx:id="barra" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="640.0" style="-fx-background-color: #286656; -fx-background-radius: 2;" AnchorPane.rightAnchor="0.0">
                <effect>
                   <DropShadow height="127.5" radius="31.375" spread="0.34" width="0.0">
                      <color>
@@ -94,12 +95,26 @@
                      <font>
                         <Font name="Avignon Pro Xlight" size="36.0" />
                      </font>
+                     <effect>
+                        <Glow level="1.0" />
+                     </effect>
                   </Label>
                </items>
                <padding>
                   <Insets left="290.0" />
                </padding>
             </ToolBar>
+            <Button fx:id="BTN_fechar1" layoutX="63.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#abrirSettings" prefHeight="41.0" prefWidth="183.0" text="Configurações" textFill="#404040">
+               <graphic>
+                  <FontAwesomeIconView fill="#404040" glyphName="GEAR" size="22" text="" />
+               </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="Avignon Pro Bold" size="18.0" />
+               </font>
+            </Button>
          </children>
     </AnchorPane>
   </children>

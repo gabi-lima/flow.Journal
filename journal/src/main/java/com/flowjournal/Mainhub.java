@@ -49,8 +49,24 @@ public class Mainhub {
         Scene scene = new Scene(root);
 
         Stage diario = new Stage();
+
         diario.setTitle("flow.Journal");
+        diario.setResizable(false);
+
         diario.setScene(scene);
         diario.show();
+    }
+
+    @FXML
+    private void abrirSettings() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+
+        Stage settings = new Stage();
+
+        settings.setScene(scene);
+        settings.show();
+
     }
 }

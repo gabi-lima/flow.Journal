@@ -107,12 +107,12 @@ public class Popup {
             Scene scene = new Scene(root);
 
             Stage popup = new Stage();
-
+            popup.setResizable(false);
             popup.setScene(scene);
             popup.setTitle("flow.Journal");
             popup.show();
 
-            PauseTransition delay = new PauseTransition(Duration.minutes(60));
+            PauseTransition delay = new PauseTransition(Duration.seconds(60));
             delay.setOnFinished(Event -> exibirPop());
             delay.play();
 

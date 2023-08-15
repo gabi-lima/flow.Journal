@@ -32,10 +32,10 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
@@ -44,45 +44,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vboxHub" alignment="CENTER" maxWidth="-Infinity" prefHeight="760.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flowjournal.Mainhub">
+<VBox prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flowjournal.settings">
   <children>
-    <AnchorPane fx:id="anchorHub" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #181818;" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="BTN_novo" layoutX="65.0" layoutY="154.0" mnemonicParsing="false" onMouseClicked="#iniciarPopup" prefHeight="41.0" prefWidth="183.0" text="Nova nota" textFill="#404040">
-               <font>
-                  <Font name="Avignon Pro Bold" size="18.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fill="#404040" glyphName="PLUS" selectionFill="#40404030" size="22" />
-               </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-            <Button fx:id="BTN_arquivos" layoutX="63.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#abrirDiario" prefHeight="41.0" prefWidth="183.0" text="Ver notas" textFill="#404040">
-               <font>
-                  <Font name="Avignon Pro Bold" size="18.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fill="#404040" glyphName="ARCHIVE" size="22" text="">
-                     <font>
-                        <Font />
-                     </font>
-                  </FontAwesomeIconView>
-               </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-            <Button fx:id="BTN_fechar" layoutX="63.0" layoutY="590.0" mnemonicParsing="false" onMouseClicked="#fecharApp" prefHeight="55.0" prefWidth="64.0">
-               <graphic>
-                  <FontAwesomeIconView glyphName="TIMES" size="38" />
-               </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-            <ToolBar fx:id="barra" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="640.0" style="-fx-background-color: #286656; -fx-background-radius: 2;" AnchorPane.rightAnchor="0.0">
+            <ToolBar fx:id="barra" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="640.0" style="-fx-background-color: #286656; -fx-background-radius: 2;">
                <effect>
                   <DropShadow height="127.5" radius="31.375" spread="0.34" width="0.0">
                      <color>
@@ -91,7 +57,7 @@
                   </DropShadow>
                </effect>
                <items>
-                  <Label text="Flow" textAlignment="CENTER">
+                  <Label text="Configurações" textAlignment="CENTER">
                      <font>
                         <Font name="Avignon Pro Xlight" size="36.0" />
                      </font>
@@ -101,20 +67,16 @@
                   </Label>
                </items>
                <padding>
-                  <Insets left="290.0" />
+                  <Insets left="200.0" />
                </padding>
             </ToolBar>
-            <Button fx:id="BTN_fechar1" layoutX="63.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#abrirSettings" prefHeight="41.0" prefWidth="183.0" text="Configurações" textFill="#404040">
-               <graphic>
-                  <FontAwesomeIconView fill="#404040" glyphName="GEAR" size="22" text="" />
-               </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
+            <Label layoutX="39.0" layoutY="91.0" text="Defina o tempo (em minutos):" textFill="WHITE">
                <font>
-                  <Font name="Avignon Pro Bold" size="18.0" />
+                  <Font size="18.0" />
                </font>
-            </Button>
+            </Label>
+            <TextField fx:id="inputMinutos" layoutX="286.0" layoutY="93.0" prefHeight="25.0" prefWidth="32.0" promptText="0" text="00" />
+            <Button fx:id="btnConfirmar" layoutX="515.0" layoutY="342.0" mnemonicParsing="false" onKeyPressed="#salvarBD" onMouseClicked="#salvarBD" text="Confirmar" />
          </children>
     </AnchorPane>
   </children>
