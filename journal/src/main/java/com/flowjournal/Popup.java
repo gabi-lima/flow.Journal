@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -49,6 +50,39 @@ public class Popup {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateTimeLabels()));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+        carregarConfig();
+
+    }
+
+    private int carregarConfig() {
+        int latest_id = 0;
+        int timer = 60;
+        try {
+            String url = "jdbc:sqlite:flow.db";
+            Connection connection = DriverManager.getConnection(url);
+            String sqlID = "SELECT MAX(id) AS latest_id FROM settings";
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlID);
+            preparedStatement.executeQuery();
+            int latestId = preparedStatement.executeQuery().getInt("latest_id");
+
+            String recordQuery = "SELECT * FROM settings WHERE id = ?";
+            PreparedStatement recordStatement = connection.prepareStatement(recordQuery);
+            recordStatement.setInt(1, latestId);
+
+            ResultSet recordResultSet = recordStatement.executeQuery();
+            timer = recordStatement.executeQuery().getInt("timer");
+
+            System.out.println("Data fetch from database!");
+
+            preparedStatement.close();
+            recordStatement.close();
+            recordResultSet.close();
+
+        } catch (SQLException e) {
+            System.out.println("Failed to fetch data to the database!");
+            e.printStackTrace();
+        }
+        return timer;
 
     }
 
@@ -99,7 +133,7 @@ public class Popup {
     }
 
     public void exibirPop() {
-
+        int timer = carregarConfig();
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("popup.fxml"));
@@ -112,9 +146,10 @@ public class Popup {
             popup.setTitle("flow.Journal");
             popup.show();
 
-            PauseTransition delay = new PauseTransition(Duration.seconds(60));
+            PauseTransition delay = new PauseTransition(Duration.minutes(timer));
             delay.setOnFinished(Event -> exibirPop());
             delay.play();
+            System.out.println(timer);
 
         } catch (IOException e) {
             System.out.println("Erro ao abrir POP-UP!");
